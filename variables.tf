@@ -4,7 +4,7 @@ variable "clientSecret" {}
 variable "tenantId" {}
 
 variable "rgname" {
-  default = "RG-SBN-US-"
+  default = "RG-NW-SBNT-US-"
 }
 
 variable "region" {}
