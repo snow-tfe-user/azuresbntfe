@@ -26,3 +26,11 @@ resource "azurerm_subnet" "app_sbnt" {
   virtual_network_name = "${azurerm_virtual_network.db_app_nw[count.index].name}"
   address_prefix       = "10.0.1.0/24"
 }
+
+resource "azurerm_subnet" "app_sbnt2" {
+  count                = 1
+  name                 = "app_sbnt2-${format("%00.0f", count.index)}-${substr(azurerm_resource_group.rg.name,11,14)}"
+  resource_group_name  = "${azurerm_resource_group.rg.name}"
+  virtual_network_name = "${azurerm_virtual_network.db_app_nw[count.index].name}"
+  address_prefix       = "10.0.2.0/24"
+}
